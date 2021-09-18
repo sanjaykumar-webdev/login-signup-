@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Login Form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- register section -->
+<form>
+
+<div class="wrapper">
+    <div class="title">
+      Login page
+    </div>
+    <div class="form">
+        <div class="inputfield">
+          <label>Email Address</label>
+          <input type="text" class="input" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+       </div>
+	    <div class="inputfield">
+          <label>Password</label>
+          <input type="password" class="input" name="pass" required size="15">
+       </div>   
+      <div class="inputfield">
+        <input type="submit" value="Login" name="submit" class="btn" button onclick="sweetalertclick()">
+      </div>
+	  <div class="account">
+		Don't have account-<a href="signup.html"> Signup</a>
+      </div>
+    </div>
+</div>	
+</form>
+</body>
+</html>
