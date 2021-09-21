@@ -1,0 +1,21 @@
+.controls p{
+    color:#a94442;
+	
+}
+body{
+background:lightblue;
+}
+
+.control-group{
+  margin:auto;
+  width:300px;
+}
+#simple_form{
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+  height:370px;
+}

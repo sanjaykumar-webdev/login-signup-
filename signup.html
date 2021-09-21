@@ -1,32 +1,92 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-	<title>Sign Up</title>
-	<link rel="stylesheet" href="style.css">
+<title>PHP Mysql Registration Form Validation using jqBootstrapValidation with Jquery Ajax</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.js"></script>
 </head>
 <body>
-<!-- register section -->
-<form action="register.php" method="POST" data-aos="zoom-out">
-
-<div class="wrapper">
-    <div class="title">
-      Sign Up
-    </div>
-    <div class="form">
-        <div class="inputfield">
-          <label>Email Address</label>
-          <input type="text" class="input" name="email" required size="15">
-       </div>
-	    <div class="inputfield">
-          <label>Password</label>
-          <input type="password" class="input" name="pass" required size="15">
-       </div>   
-      <div class="inputfield">
-        <input type="submit" value="SignUp" name="submit" class="btn" button onclick="sweetalertclick()">
+<div class="container">
+<br />
+<h3 align="center">SignUp</h3>
+<br />
+<form class="form-horizontal" method="POST" id="simple_form" novalidate="novalidate">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Name" required="required" data-validation-required-message="Please enter your Username">
+        <p class="text-danger help-block"></p>
       </div>
     </div>
-</div>	
+  
+    <div class="control-group">
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Email" required="required" data-validation-required-message="Please provide your E-mail">
+        <p class="text-danger help-block"></p>
+      </div>
+    </div>
+  
+    <div class="control-group">
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password" required="required" data-validation-required-message="Please provide your password">
+        <p class="text-danger help-block"></p>
+      </div>
+    </div>
+  
+    <div class="control-group">
+      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="password_confirm" class="form-control form-control-lg" name="password_confirm" placeholder="Password (Confirm)" required="required" data-validation-required-message="Please confirm password">
+        <p class="text-danger help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+        <div id="success"></div>
+      <div class="controls">
+        <button class="btn btn-success" type="submit" class="form-control form-control-lg" class="btn btn-primary" id="send_button">Register</button>
+      </div>
+    </div>
+  </fieldset>
 </form>
+</div>
+<script>
+$(document).ready(function(){
+    $('#simple_form input, #simple_form textarea').jqBootstrapValidation({
+        preventSubmit: true,
+        submitSuccess: function($form, event){     
+            event.preventDefault();
+            $this = $('#send_button');
+            $this.prop('disabled', true);
+            var form_data = $("#simple_form").serialize();
+            $.ajax({
+               url:"insert.php",
+               method:"POST",
+               data:form_data,
+               success:function(){
+                $('#success').html("<div class='alert alert-success'><strong>Successfully Registered </strong></div>");
+                $('#simple_form').trigger('reset');
+               },
+               error:function(){
+                $('#success').html("<div class='alert alert-danger'>error</div>");
+                $('#simple_form').trigger('reset');
+               },
+               complete:function(){
+                setTimeout(function(){
+                 $this.prop("disabled", false);
+                 $('#success').html('');
+                }, 5000);
+               }
+            });
+        },
+    });
+ 
+});
+</script>
 </body>
 </html>
