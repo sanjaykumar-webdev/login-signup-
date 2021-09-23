@@ -15,7 +15,7 @@
     <br />
     <h3 align="center">SignUp</h3>
     <br />
-    <form class="form-horizontal" method="POST" id="form">
+    <form class="form-horizontal" id="form">
       <fieldset>
         <div class="control-group">
           <label class="control-label" for="username">Username</label>
@@ -63,6 +63,7 @@
         url: "signupsubmit.php",
         type: "post",
         data: $("#form").serialize(),
+
       });
     });
   </script>
