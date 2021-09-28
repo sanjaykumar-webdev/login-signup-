@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="css/style.sass">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.js"></script>
 </head>
 
@@ -41,7 +41,7 @@
 
       <div class="control-group">
         <div class="controls">
-          <button class="btn btn-success" type="submit" class="form-control form-control-lg" class="btn btn-primary" id="send">Login</button>
+          <button class="btn btn-info" type="submit" class="form-control form-control-lg" id="send">Login</button>
         </div>
         <span id="response"></span>
       </div>

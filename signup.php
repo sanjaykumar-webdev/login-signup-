@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.sass">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.js"></script>
 </head>
 
@@ -51,7 +51,7 @@
         <div class="control-group">
           <div id="success"></div>
           <div class="controls">
-            <button class="btn btn-success" type="submit" class="form-control form-control-lg" class="btn btn-primary" id="send">Register</button>
+            <button class="btn btn-info" type="submit" name="submit" class="form-control form-control-lg" id="send">Register</button>
           </div>
         </div>
       </fieldset>
@@ -63,7 +63,6 @@
         url: "signupsubmit.php",
         type: "post",
         data: $("#form").serialize(),
-
       });
     });
   </script>
