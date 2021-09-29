@@ -1,9 +1,8 @@
 <?php
 function get_data()
 {
-
   $connect = mysqli_connect("localhost", "root", "", "data");
-  $query = "select * from form";
+  $query = "select * from signup";
   $result = mysqli_query($connect, $query);
 
   $User_data = array();
@@ -16,8 +15,3 @@ function get_data()
   return json_encode($User_data);
 }
 $file_name = 'database.json';
-if (file_put_contents($file_name, get_data())) {
-  echo $file_name . 'file created';
-} else {
-  echo "error";
-}
